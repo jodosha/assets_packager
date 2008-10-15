@@ -1,0 +1,67 @@
+AssetsPackager
+==============
+
+When you deploy your application it could be convenient to package all your
+stylesheets and javascripts in a single file, let say all.css and all.js, in
+order to decrease the HTTP requests against your server.
+
+You may also find useful to reduce the size of those files, through a process
+which eliminates all unneeded white spaces and comments.
+
+AssetsPackager Rake tasks will help you in solving those problems.
+
+
+
+= Installation
+Copy assets_packager_tasks.rake under lib/tasks and jsmin under script/.
+
+
+
+= How It works?
+First of all, we need to generate a configuration file:
+
+$ rake assets:config
+
+Look for a file called assets.yml in your config directory and make sure the
+order of listed files is the same you wish to have in your application
+(i.e. prototype.js first of effects.js, or lowpro.js first of my_behavior.js).
+Feel free of edit it.
+
+We are now ready for merge and compress our files:
+
+$ rake assets:package
+
+
+
+Now, in your application make sure of use #javascript_include_tag and
+#stylesheet_link_tag with the :cache => true option.
+
+
+
+= Credits
+AssetsPackager was strongly inspired by the homonym plugin written by
+Scott Becker (http://synthesis.sbecker.net/), but I dont't like the
+approach used by him.
+
+I don't like the idea of load a plugin for something I don't need in production
+mode. In fact you should execute those tasks before your app will be started
+(i.e. Capistrano post deploy task).
+
+It also introduces new helpers (#javascript_include_merged) which substantially,
+reproduce the same behavior of the :cache => true option.
+
+Last, but not least, I don't like the naming system: base_1150571523.js
+If you use Mongrel this means to have something like this:
+
+<script type="text/javascript" src="/javascripts/base_1150571523.js?1150571523"></script>
+
+Which sounds a bit redundant, if compared with all.js?1150571523
+
+
+
+Uladzislau Latynski for his jsmin.rb Ruby porting.
+
+
+
+Thanks to Steve Souder (http://stevesouders.com/) for his High Performance
+Web Sites book.
