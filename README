@@ -24,7 +24,7 @@ $ rake assets:config
 
 Look for a file called assets.yml in your config directory and make sure the
 order of listed files is the same you wish to have in your application
-(i.e. prototype.js first of effects.js, or lowpro.js first of my_behavior.js).
+(i.e. prototype.js before of effects.js, or lowpro.js before of my_behavior.js).
 Feel free of edit it.
 
 We are now ready for merge and compress our files:
@@ -40,7 +40,7 @@ Now, in your application make sure of use #javascript_include_tag and
 
 = Credits
 AssetsPackager was strongly inspired by the homonym plugin written by
-Scott Becker (http://synthesis.sbecker.net/), but I dont't like the
+Scott Becker (http://synthesis.sbecker.net/), but I don't like the
 approach used by him.
 
 I don't like the idea of load a plugin for something I don't need in production
@@ -65,3 +65,6 @@ Uladzislau Latynski for his jsmin.rb Ruby porting.
 
 Thanks to Steve Souder (http://stevesouders.com/) for his High Performance
 Web Sites book.
+
+
+Copyright 2008 Luca Guidi - www.lucaguidi.com - Released under MIT License
