@@ -53,8 +53,8 @@ namespace :assets do
       `#{JSMIN} <#{sprockets_path} >#{JS_PATH}/sprockets_compressed.js \n`
       `mv #{JS_PATH}/sprockets_compressed.js #{sprockets_path}`
       # Remove the blank line on the top of the file
-      lines = File.readlines(path)[1..-1]
-      File.open(path, 'w+') { |file| file.write lines }
+      lines = File.readlines(sprockets_path)[1..-1]
+      File.open(sprockets_path, 'w+') { |file| file.write lines }
     end
     
     desc "Compress all the stylesheets"
