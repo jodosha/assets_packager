@@ -1,3 +1,6 @@
+# Copyright 2010 Luca Guidi - www.lucaguidi.com - Released under MIT License
+# http://github.com/jodosha/assets_packager
+
 RAILS_ROOT = File.expand_path(Dir.pwd) unless defined? RAILS_ROOT
 CONFIGURATION = "#{RAILS_ROOT}/config/assets.yml"
 JS_PATH = RAILS_ROOT + '/public/javascripts'
