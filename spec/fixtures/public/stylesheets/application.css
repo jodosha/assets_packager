@@ -1,0 +1,17 @@
+/*
+ * Application.css
+ */
+body {
+  color: #333;
+  background-color: #fff;
+  font: 1.5em Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  color: #666;
+  font-size: 2.0em;
+}
