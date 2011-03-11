@@ -1,5 +1,10 @@
 require 'assets_packager'
 
+unless Rake::Task.task_defined?('environment')
+  task :environment do # Rails environment placeholder
+  end
+end
+
 namespace :assets do
   desc "Package all the assets"
   task :package => 'package:all'
@@ -42,12 +47,12 @@ end)
     task :all => [ :js, :css ]
 
     desc "Merge all the javascripts"
-    task :js do
+    task :js => :environment do
       AssetsPackager::Mergers::Javascript.merge!
     end
 
     desc "Merge all the stylesheets"
-    task :css do
+    task :css => :environment do
       AssetsPackager::Mergers::Stylesheet.merge!
     end
   end
@@ -57,12 +62,12 @@ end)
     task :all => [ :js, :css ]
 
     desc "Compress all the javascripts"
-    task :js do
+    task :js => :environment do
       AssetsPackager::Compressors::Javascript.compress!
     end
 
     desc "Compress all the stylesheets"
-    task :css do
+    task :css => :environment do
       AssetsPackager::Compressors::Stylesheet.compress!
     end
   end
@@ -72,12 +77,12 @@ end)
     task :all => [ :js, :css ]
 
     desc "Clear packaged javascript"
-    task :js do
+    task :js => :environment do
       AssetsPackager::Cleaner.clear_javascripts!
     end
 
     desc "Clear packaged stylesheet"
-    task :css do
+    task :css => :environment do
       AssetsPackager::Cleaner.clear_stylesheets!
     end
   end
