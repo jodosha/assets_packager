@@ -15,8 +15,11 @@ which eliminates all unneeded white spaces and comments.
     # Gemfile
     gem 'assets_packager'
 
+    # lib/tasks/assets.rake
+    require 'assets_packager/tasks'
+
     # shell
-    $ rake assets:config
+    $ rake assets:install
 
 If you are in a `Rails` context, you don't need to setup anything else,
 otherwise you can specify your paths:

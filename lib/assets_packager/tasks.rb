@@ -10,12 +10,11 @@ namespace :assets do
   desc "Install configuration files"
   task :install do
     if ::Rails && ::Rails.root
-      ::File.open(::Rails.root.join('lib', 'tasks', 'assets.rake'), 'w+') do |file|
+      ::File.open(::Rails.root.join('lib', 'initializers', 'assets.rb'), 'w+') do |file|
         file.write << %(AssetsPackager.configure do |config|
 config.root_path = ::Rails.public_path
 config.file_path = ::Rails.root.join('config', 'assets.yml')
-  end
-require 'assets_packager/tasks')
+  end)
       end
 
       Rake::Task['assets:config'].execute
