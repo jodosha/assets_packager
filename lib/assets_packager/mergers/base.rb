@@ -9,7 +9,7 @@ module AssetsPackager
       end
 
       def self.file
-        @@file ||= ::File.join(path, "all.#{type}")
+        @file ||= ::File.join(path, "all.#{type}")
       end
 
       def self.path
