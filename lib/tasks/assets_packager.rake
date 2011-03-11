@@ -7,6 +7,20 @@ namespace :assets do
   desc "Clear all the assets"
   task :clear => 'clear:all'
 
+  desc "Install configuration files"
+  task :install do
+    if ::Rails && ::Rails.root
+      ::File.open(::Rails.root.join('config', 'initializers', 'assets.rb'), 'w+') do |file|
+        file.write << %(AssetsPackager.configure do |config|
+config.root_path = ::Rails.public_path
+config.file_path = ::Rails.root.join('config', 'assets.yml')
+  end)
+      end
+
+      Rake::Task['assets:config'].execute
+    end
+  end
+
   desc "Write the configuration file"
   task :config do
     AssetsPackager::Configuration.write!
