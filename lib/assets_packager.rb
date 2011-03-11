@@ -10,3 +10,7 @@ module AssetsPackager
     yield AssetsPackager::Configuration
   end
 end
+
+if defined?(Rails)
+  require 'assets_packager/rails'
+end
